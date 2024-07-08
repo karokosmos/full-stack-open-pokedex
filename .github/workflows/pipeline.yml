@@ -43,7 +43,7 @@ jobs:
 
       - name: Trigger deployment
         # Only run this step if the branch is main
-        if: github.ref == 'refs/heads/main'
+        if: ${{ github.event_name == 'push' }}
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
